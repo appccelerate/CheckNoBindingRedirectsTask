@@ -63,7 +63,7 @@ namespace Appccelerate.CheckNoBindingRedirectsTask
         private void LogViolation(Violation violation)
         {
             string message = string.Concat(
-                "Found unexpecte binding redirect for assembly `",
+                "Found unexpected binding redirect for assembly `",
                 violation.Assembly,
                 "` in ",
                 this.ConfigFullPath);
