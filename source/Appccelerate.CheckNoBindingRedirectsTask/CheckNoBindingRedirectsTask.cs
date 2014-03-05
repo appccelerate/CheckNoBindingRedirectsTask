@@ -32,8 +32,10 @@ namespace Appccelerate.CheckNoBindingRedirectsTask
         [Required]
         public string ConfigFullPath { get; set; }
 
+        [Required]
         public string ExcludePatterns { get; set; }
 
+        [Required]
         public bool Verbose { get; set; }
 
         public override bool Execute()
