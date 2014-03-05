@@ -32,15 +32,11 @@ namespace Appccelerate.CheckNoBindingRedirectsTask
         [Required]
         public string ConfigFullPath { get; set; }
 
-        [Required]
         public string ExcludePatterns { get; set; }
-
-        [Required]
-        public bool Verbose { get; set; }
 
         public override bool Execute()
         {
-            this.Log.LogMessage(MessageImportance.Low, "checking " + this.ConfigFullPath + " for binding redirects. Excluded are " + this.ExcludePatterns);
+            this.Log.LogMessage(MessageImportance.Normal, "checking " + this.ConfigFullPath + " for binding redirects. Excluded are " + this.ExcludePatterns);
 
             XDocument config = XDocument.Load(this.ConfigFullPath);
 

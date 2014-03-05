@@ -17,8 +17,7 @@
     <CheckNoBindingRedirectsTask
         TreatWarningsAsErrors="$(TreatWarningsAsErrors)"
         ConfigFullPath="$(ConfigFile)"
-        ExcludePatterns="$(CheckNoBindingRedirectsTaskExcludePatterns)" 
-        Verbose="$(CheckNoBindingRedirectsTaskVerbose)"/>
+        ExcludePatterns="$(CheckNoBindingRedirectsTaskExcludePatterns)" />
   </Target>
 </Project>
 
