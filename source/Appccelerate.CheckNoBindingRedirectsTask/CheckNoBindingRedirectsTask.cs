@@ -68,11 +68,11 @@ namespace Appccelerate.CheckNoBindingRedirectsTask
 
             if (this.TreatWarningsAsErrors)
             {
-                this.Log.LogError(message);
+                this.Log.LogError(null, null, null, this.ConfigFullPath, 0, 0, 0, 0, message);
             }
             else
             {
-                this.Log.LogWarning(message);
+                this.Log.LogWarning(null, null, null, this.ConfigFullPath, 0, 0, 0, 0, message);
             }
         }
     }

@@ -25,20 +25,20 @@ namespace Appccelerate.CheckNoBindingRedirectsTask
 
     public class Verifier
     {
-         public IReadOnlyCollection<Violation> Verify(XDocument config, IReadOnlyCollection<string> excludePatterns)
-         {
-             XNamespace ns = "urn:schemas-microsoft-com:asm.v1";
-             var bindingRedirects = config.Descendants(ns + "bindingRedirect").ToList();
+        public IReadOnlyCollection<Violation> Verify(XDocument config, IReadOnlyCollection<string> excludePatterns)
+        {
+            XNamespace ns = "urn:schemas-microsoft-com:asm.v1";
+            var bindingRedirects = config.Descendants(ns + "bindingRedirect").ToList();
 
-             var violations = from bindingRedirect in bindingRedirects
-                              let assemblyName = bindingRedirect.Parent.Element(ns + "assemblyIdentity").Attribute("name").Value
-                              where 
-                     !excludePatterns
-                         .Select(pattern => new Regex(pattern))
-                         .Any(regex => regex.IsMatch(assemblyName))
-                         select new Violation(assemblyName);
+            var violations = from bindingRedirect in bindingRedirects
+                             let assemblyName = bindingRedirect.Parent.Element(ns + "assemblyIdentity").Attribute("name").Value
+                             where
+                    !excludePatterns
+                        .Select(pattern => new Regex(pattern))
+                        .Any(regex => regex.IsMatch(assemblyName))
+                             select new Violation(assemblyName);
 
-             return violations.ToList();
-         }
+            return violations.ToList();
+        }
     }
 }
