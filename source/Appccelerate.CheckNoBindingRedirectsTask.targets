@@ -14,7 +14,7 @@
     TaskName="CheckNoBindingRedirectsTask"
     AssemblyFile="$(MSBuildThisFileDirectory)..\Appccelerate.CheckNoBindingRedirectsTask.dll" />
 
-  <Target Name="AfterBuild">
+  <Target Name="AfterBuild" Condition="$(ConfigFile) != ''">
     <CheckNoBindingRedirectsTask
         TreatWarningsAsErrors="$(TreatWarningsAsErrors)"
         ConfigFullPath="$(ConfigFile)"
