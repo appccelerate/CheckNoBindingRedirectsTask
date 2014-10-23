@@ -11,8 +11,8 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <BuildDependsOn>$(BuildDependsOn);CheckNoBindingRedirects<BuildDependsOn>
-    <RebuildDependsOn>$(RebuildDependsOn);CheckNoBindingRedirects<RebuildDependsOn>
+    <BuildDependsOn>$(BuildDependsOn);CheckNoBindingRedirects</BuildDependsOn>
+    <RebuildDependsOn>$(RebuildDependsOn);CheckNoBindingRedirects</RebuildDependsOn>
   </PropertyGroup>
   
   <UsingTask
