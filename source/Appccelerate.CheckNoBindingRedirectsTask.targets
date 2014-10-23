@@ -10,16 +10,22 @@
     <ConfigFile Condition="Exists('app.config')">app.config</ConfigFile>
   </PropertyGroup>
   
+  <PropertyGroup>
+    <BuildDependsOn>$(BuildDependsOn);CheckNoBindingRedirects<BuildDependsOn>
+    <RebuildDependsOn>$(RebuildDependsOn);CheckNoBindingRedirects<RebuildDependsOn>
+  </PropertyGroup>
+  
   <UsingTask
     TaskName="CheckNoBindingRedirectsTask"
     AssemblyFile="$(MSBuildThisFileDirectory)..\Appccelerate.CheckNoBindingRedirectsTask.dll" />
 
-  <Target Name="AfterBuild">
+  <Target Name="CheckNoBindingRedirects">
     <CheckNoBindingRedirectsTask Condition="$(ConfigFile) != ''"
         TreatWarningsAsErrors="$(TreatWarningsAsErrors)"
         ConfigFullPath="$(ConfigFile)"
         ExcludePatterns="$(CheckNoBindingRedirectsTaskExcludePatterns)" />
   </Target>
+  
 </Project>
 
 
